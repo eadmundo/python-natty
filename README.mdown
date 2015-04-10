@@ -1,0 +1,30 @@
+# python-natty
+
+A basic python wrapper for [Natty](https://github.com/joestelmach/natty), using [Jpype](http://jpype.sourceforge.net).
+
+## Installation
+
+Not on pypi yet - install from git using pip:
+
+    $ pip install git+https://github.com/eadmundo/python-natty.git
+
+You will also need to have a JVM installed and `JAVA_HOME` set properly for Jpype.
+
+## Usage
+
+    >>> from natty import DateParser
+    >>> dp = DateParser('tomorrow')
+    >>> dp.result()
+    datetime.datetime(2015, 4, 11, 14, 4, 39, tzinfo=tzlocal())
+
+If the string can be parsed for a date, the result returns a `datetime` object with a [tzlocal] timezone, as determined by the operating system. python-dateutil's [parse method](https://labix.org/python-dateutil#head-c0e81a473b647dfa787dc11e8c69557ec2c3ecd2) is used under the hood.
+
+If the string cannot be parsed for a date, it returns `False`.
+
+## Caveats
+
+This is very rough and ready - it assumes a single date will be returned, although in fact Natty returns a list of DateGroups and list of dates. If you are unsure about the result, you can check it [on the Natty project site](http://natty.joestelmach.com/try.jsp).
+
+## Thanks
+
+Of course huge thanks to the creators of Natty, Jpype and dateutil, which are all awesome, but also thanks to [python-boilerpipe](https://github.com/misja/python-boilerpipe) which I copied for the project layout and use of Jpype.
