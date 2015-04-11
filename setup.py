@@ -1,12 +1,12 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='natty',
-    version='0.1.0',
+    version='0.2.0',
     packages=['natty'],
     package_data={
         'natty': [
-            'data/natty-basic-parser-0.1.0.jar'
+            'data/natty-basic-parser-0.2.0.jar'
         ],
     },
     install_requires=[

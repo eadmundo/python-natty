@@ -15,15 +15,18 @@ You will also need to have a JVM installed and `JAVA_HOME` set properly for Jpyp
     >>> from natty import DateParser
     >>> dp = DateParser('tomorrow')
     >>> dp.result()
-    datetime.datetime(2015, 4, 11, 14, 4, 39, tzinfo=tzlocal())
+    [datetime.datetime(2015, 4, 12, 15, 53, 14, tzinfo=tzlocal())]
+    >>> dp = DateParser('monday and tuesday')
+    >>> dp.result()
+    [datetime.datetime(2015, 4, 13, 15, 53, 29, tzinfo=tzlocal()), datetime.datetime(2015, 4, 14, 15, 53, 29, tzinfo=tzlocal())]
 
-If the string can be parsed for a date, the result returns a `datetime` object with a [tzlocal] timezone, as determined by the operating system. python-dateutil's [parse method](https://labix.org/python-dateutil#head-c0e81a473b647dfa787dc11e8c69557ec2c3ecd2) is used under the hood.
+If the string can be parsed for dates, the result returns a list of `datetime` objects with [tzlocal](https://labix.org/python-dateutil#head-5fb12f4538c5a2fd83f87eea8e6c0ddd47f8b4b0) timezone objects, as determined by the operating system. python-dateutil's [parse method](https://labix.org/python-dateutil#head-c0e81a473b647dfa787dc11e8c69557ec2c3ecd2) is used under the hood.
 
-If the string cannot be parsed for a date, it returns `False`.
+If the string cannot be parsed for any dates, it returns `None`.
 
 ## Caveats
 
-This is very rough and ready - it assumes a single date will be returned, although in fact Natty returns a list of DateGroups and list of dates. If you are unsure about the result, you can check it [on the Natty project site](http://natty.joestelmach.com/try.jsp).
+This is very rough and ready - it assumes a single DateGroup will be returned, although in fact Natty returns a list of DateGroups (although it only ever seems to contain a single DateGroup). If you are unsure about the result, you can check it [on the Natty project site](http://natty.joestelmach.com/try.jsp).
 
 ## Thanks
 

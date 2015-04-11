@@ -24,6 +24,7 @@ NattyParser = jpype.JClass('com.eadmundo.natty.NattyParser')
 class DateParser(object):
 
     def __init__(self, date_string):
+        self.date_groups = None
         try:
             # make it thread-safe
             if threading.activeCount() > 1:
@@ -31,9 +32,15 @@ class DateParser(object):
                     jpype.attachThreadToJVM()
             lock.acquire()
 
-            self._result = NattyParser.parseDate(date_string)
+            self.date_groups = NattyParser.parseDateIntoGroups(date_string)
         finally:
             lock.release()
 
+    def parse(self, d):
+        return parser.parse(d)
+
     def result(self):
-        return False if self._result == 'false' else parser.parse(self._result)
+        if self.date_groups is not None:
+            return [self.parse(d.toString()) for d in [
+                dg for dg in self.date_groups][0].dates]
+        return None
