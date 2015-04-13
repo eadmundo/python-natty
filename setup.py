@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='natty',
-    version='0.2.2',
+    version='0.2.3',
     packages=['natty'],
     package_data={
         'natty': [
@@ -18,6 +18,8 @@ setup(
     ],
     author='Edward Stone',
     author_email='edwardjstone@yahoo.com',
+    url='https://github.com/eadmundo/python-natty',
+    download_url='https://github.com/eadmundo/python-natty/archive/v0.2.3.tar.gz',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
