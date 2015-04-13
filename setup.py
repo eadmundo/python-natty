@@ -2,13 +2,15 @@ from setuptools import setup
 
 setup(
     name='natty',
-    version='0.2.0',
+    version='0.2.1',
     packages=['natty'],
     package_data={
         'natty': [
             'data/natty-basic-parser-0.2.0.jar'
         ],
     },
+    package_dir={'natty': 'natty'},
+    include_package_data=True,
     install_requires=[
         'JPype1',
         'python-dateutil'
