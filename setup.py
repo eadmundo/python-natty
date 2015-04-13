@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='natty',
-    version='0.2.1',
+    version='0.2.2',
     packages=['natty'],
     package_data={
         'natty': [
@@ -11,6 +11,7 @@ setup(
     },
     package_dir={'natty': 'natty'},
     include_package_data=True,
+    zip_safe=False,
     install_requires=[
         'JPype1',
         'python-dateutil'
