@@ -40,7 +40,7 @@ class DateParser(object):
         return parser.parse(d)
 
     def result(self):
-        if self.date_groups is not None:
+        if self.date_groups is not None and len(self.date_groups):
             return [self.parse(d.toString()) for d in [
                 dg for dg in self.date_groups][0].dates]
         return None
