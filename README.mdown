@@ -4,7 +4,7 @@ A basic python wrapper for [Natty](https://github.com/joestelmach/natty), using 
 
 ## Installation
 
-    $ pip install python-natty
+    $ pip install natty
 
 You will also need to have a JVM installed and `JAVA_HOME` set properly for Jpype.
 
